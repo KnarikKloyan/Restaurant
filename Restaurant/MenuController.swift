@@ -31,7 +31,7 @@ class MenuController {
         let categoriesResponse = try decoder.decode(CategoriesResponse.self, from: data)
         
         return categoriesResponse.categories
-}
+    }
 
     func fetchMenuItems(forCategory categoryName: String) async throws -> [MenuItem] {
         let initialMenuURl = baseURL.appendingPathComponent("menu")
@@ -49,7 +49,7 @@ class MenuController {
         let menuResponse = try decoder.decode(MenuResponse.self, from: data)
         
         return menuResponse.items
-}
+    }
 
     func submitOrder(forMenuIDs menuIDs: [Int]) async throws -> MinutesTopPrepare {
         let orderURL = baseURL.appendingPathComponent("order")
