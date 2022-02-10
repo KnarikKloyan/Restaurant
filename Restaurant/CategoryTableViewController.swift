@@ -15,7 +15,7 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Task.init {
+        Task {
             do {
                 let categories = try await menuController.fetchCategories()
                 updateUI(with: categories)
@@ -45,10 +45,6 @@ class CategoryTableViewController: UITableViewController {
         
         let category = categories[indexPath.row]
         return MenuTableViewController(coder: coder, category: category)
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

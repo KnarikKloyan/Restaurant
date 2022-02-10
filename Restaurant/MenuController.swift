@@ -10,13 +10,13 @@ import Foundation
 class MenuController {
     let baseURL = URL(string: "http://localhost:8080/")!
    
-    typealias MinutesTopPrepare = Int
+    typealias MinutesToPrepare = Int
 
     enum MenuControllerError: Error, LocalizedError {
         case categoriesNotFound
         case menuItemsNotFound
         case orderRequestFailed
-}
+    }
     
     func fetchCategories() async throws -> [String] {
        
@@ -51,7 +51,7 @@ class MenuController {
         return menuResponse.items
     }
 
-    func submitOrder(forMenuIDs menuIDs: [Int]) async throws -> MinutesTopPrepare {
+    func submitOrder(forMenuIDs menuIDs: [Int]) async throws -> MinutesToPrepare {
         let orderURL = baseURL.appendingPathComponent("order")
         var request = URLRequest(url: orderURL)
         request.httpMethod = "POST"
