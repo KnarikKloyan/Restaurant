@@ -19,6 +19,7 @@
 		E68B992C27A8A01300723CD7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B992B27A8A01300723CD7 /* MenuItem.swift */; };
 		E68B992E27A8A1A400723CD7 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B992D27A8A1A300723CD7 /* ResponseModels.swift */; };
 		E68B993027A8A34300723CD7 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B992F27A8A34200723CD7 /* Order.swift */; };
+		E68B993227B277B800723CD7 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B993127B277B800723CD7 /* MenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E68B992B27A8A01300723CD7 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		E68B992D27A8A1A300723CD7 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
 		E68B992F27A8A34200723CD7 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		E68B993127B277B800723CD7 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				E68B992F27A8A34200723CD7 /* Order.swift */,
 				E68B992927A89F6000723CD7 /* MenuItemDetailViewController.swift */,
 				E68B992327A89B5700723CD7 /* CategoryTableViewController.swift */,
+				E68B993127B277B800723CD7 /* MenuController.swift */,
 				E68B992527A89B9E00723CD7 /* MenuTableViewController.swift */,
 				E68B992727A89BB100723CD7 /* OrderTableViewController.swift */,
 				E68B991827A5B77B00723CD7 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E68B993227B277B800723CD7 /* MenuController.swift in Sources */,
 				E68B992C27A8A01300723CD7 /* MenuItem.swift in Sources */,
 				E68B992627A89B9E00723CD7 /* MenuTableViewController.swift in Sources */,
 				E68B992E27A8A1A400723CD7 /* ResponseModels.swift in Sources */,
