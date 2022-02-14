@@ -104,14 +104,74 @@
                     <view key="view" contentMode="scaleToFill" id="5fu-1M-xQE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Goh-RG-wCd">
+                                <rect key="frame" x="15" y="15" width="384" height="276.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="my2-fo-aUZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="224"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n0u-LT-l83">
+                                        <rect key="frame" x="0.0" y="232" width="384" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voj-IB-c4K">
+                                                <rect key="frame" x="0.0" y="0.0" width="322.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ Price" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8P-8A-flv">
+                                                <rect key="frame" x="330.5" y="0.0" width="53.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pk-3P-cCc">
+                                        <rect key="frame" x="0.0" y="260.5" width="384" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wai-EV-9zS">
+                                <rect key="frame" x="15" y="754" width="384" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="R7H-Fk-P4D"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add To Order"/>
+                                <connections>
+                                    <action selector="addToOrderButtonTapped:" destination="Ign-Zg-JqN" eventType="touchUpInside" id="VcM-6l-3Fw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="a9r-nq-fhf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="my2-fo-aUZ" firstAttribute="height" secondItem="5fu-1M-xQE" secondAttribute="height" multiplier="0.25" id="FMg-Jv-ERM"/>
+                            <constraint firstItem="Goh-RG-wCd" firstAttribute="leading" secondItem="a9r-nq-fhf" secondAttribute="leading" constant="15" id="Ilh-9F-TZk"/>
+                            <constraint firstItem="a9r-nq-fhf" firstAttribute="bottom" secondItem="wai-EV-9zS" secondAttribute="bottom" constant="15" id="flJ-dS-NY9"/>
+                            <constraint firstItem="wai-EV-9zS" firstAttribute="leading" secondItem="a9r-nq-fhf" secondAttribute="leading" constant="15" id="jez-aU-YUB"/>
+                            <constraint firstItem="a9r-nq-fhf" firstAttribute="trailing" secondItem="wai-EV-9zS" secondAttribute="trailing" constant="15" id="pMB-r9-a8e"/>
+                            <constraint firstItem="a9r-nq-fhf" firstAttribute="trailing" secondItem="Goh-RG-wCd" secondAttribute="trailing" constant="15" id="qzk-OB-Y70"/>
+                            <constraint firstItem="Goh-RG-wCd" firstAttribute="top" secondItem="5fu-1M-xQE" secondAttribute="top" constant="15" id="wnF-VH-FVD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Eco-Nl-b5C"/>
+                    <connections>
+                        <outlet property="addToOrderButton" destination="wai-EV-9zS" id="9FC-WX-aKF"/>
+                        <outlet property="detailTextLabel" destination="8pk-3P-cCc" id="GRQ-kh-yvN"/>
+                        <outlet property="imageView" destination="my2-fo-aUZ" id="hPC-s3-9Pg"/>
+                        <outlet property="nameLabel" destination="Voj-IB-c4K" id="sHa-HQ-BjM"/>
+                        <outlet property="priceLabel" destination="c8P-8A-flv" id="MK6-A8-JKq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Iq-fp-Obd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="-536"/>
+            <point key="canvasLocation" x="2105.7971014492755" y="-536.38392857142856"/>
         </scene>
         <!--Menu-->
         <scene sceneID="N9t-Pd-dKT">
@@ -200,6 +260,10 @@
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="photo.on.rectangle" width="128" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
