@@ -33,7 +33,7 @@ class MenuItemDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: {
             self.addToOrderButton.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
             self.addToOrderButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }, completion: nil)
+        })
     }
     
     let menuItem: MenuItem
