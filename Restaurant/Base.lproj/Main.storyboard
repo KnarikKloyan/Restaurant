@@ -144,7 +144,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add To Order"/>
                                 <connections>
-                                    <action selector="addToOrderButtonTapped:" destination="Ign-Zg-JqN" eventType="touchUpInside" id="VcM-6l-3Fw"/>
+                                    <action selector="addToOrderButtonTapped:" destination="Ign-Zg-JqN" eventType="touchUpInside" id="t2u-qu-N8X"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,7 +162,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eco-Nl-b5C"/>
                     <connections>
-                        <outlet property="addToOrderButton" destination="wai-EV-9zS" id="9FC-WX-aKF"/>
+                        <outlet property="addToOrderButton" destination="wai-EV-9zS" id="Pll-tL-Ced"/>
                         <outlet property="detailTextLabel" destination="8pk-3P-cCc" id="GRQ-kh-yvN"/>
                         <outlet property="imageView" destination="my2-fo-aUZ" id="hPC-s3-9Pg"/>
                         <outlet property="nameLabel" destination="Voj-IB-c4K" id="sHa-HQ-BjM"/>
@@ -199,12 +199,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AGa-jY-qWi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Order" textLabel="0hm-DM-SkH" detailTextLabel="la8-iy-YRv" style="IBUITableViewCellStyleValue1" id="AGa-jY-qWi">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AGa-jY-qWi" id="yuF-wR-kHJ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0hm-DM-SkH">
+                                            <rect key="frame" x="20" y="15" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="$ Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="la8-iy-YRv">
+                                            <rect key="frame" x="354" y="15" width="40" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
