@@ -49,7 +49,6 @@ class MenuTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     @IBSegueAction func showMenuItem(_ coder: NSCoder, sender: Any?) -> MenuItemDetailViewController? {
         guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
             return nil
