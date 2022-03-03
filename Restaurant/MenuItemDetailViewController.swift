@@ -26,6 +26,13 @@ class MenuItemDetailViewController: UIViewController {
         nameLabel.text = menuItem.name
         priceLabel.text = menuItem.price.formatted(.currency(code: "usd"))
         detailTextLabel.text = menuItem.detailText
+        
+        Task {
+            if let image = try? await
+                MenuController.shared.fetchImage(frum: menuItem.imageURL) {
+                imageView.image = image
+            }
+        }
     }
     
     @IBAction func addToOrderButtonTapped(_ sender: UIButton) {
