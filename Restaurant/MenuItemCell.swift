@@ -34,8 +34,7 @@ class MenuItemCell: UITableViewCell {
         }
     }
 
-    override func updateConfiguration(using state:
-       UICellConfigurationState) {
+    override func updateConfiguration(using state: UICellConfigurationState) {
         var content = defaultContentConfiguration().updated(for: state)
         content.text = itemName
         content.secondaryText = price?.formatted(.currency(code: "usd"))

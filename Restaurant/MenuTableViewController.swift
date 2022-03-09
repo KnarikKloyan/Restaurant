@@ -41,7 +41,7 @@ class MenuTableViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        imageLoadTasks.forEach { key, value in value.cancel() }
+        imageLoadTasks.values.forEach { $0.cancel() }
     }
     
     func updateUI(with menuItems: [MenuItem]) {
