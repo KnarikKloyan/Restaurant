@@ -13,6 +13,7 @@ class MenuTableViewController: UITableViewController {
     let category: String
     let menuController = MenuController()
     var menuItems = [MenuItem]()
+    var imageLoadTasks: [IndexPath: Task<Void, Never>] = [:]
     
     init?(coder: NSCoder, category: String) {
         self.category = category
@@ -35,6 +36,12 @@ class MenuTableViewController: UITableViewController {
                 displayError(error, title: "Failed to Fetch Menu Items for\(self.category)")
             }
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        imageLoadTasks.values.forEach { $0.cancel() }
     }
     
     func updateUI(with menuItems: [MenuItem]) {
@@ -68,12 +75,27 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        imageLoadTasks[indexPath]?.cancel()
+    }
+    
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? MenuItemCell else { return }
+        
         let menuItem = menuItems[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
-        content.text = menuItem.name
-        content.secondaryText = menuItem.price.formatted(.currency(code: "usd"))
-        cell.contentConfiguration = content
+        cell.itemName = menuItem.name
+        cell.price = menuItem.price
+        cell.image = nil
+        imageLoadTasks[indexPath] = Task {
+            if let image = try? await
+                MenuController.shared.fetchImage(frum: menuItem.imageURL) {
+                if let currentIndexPath = self.tableView.indexPath(for: cell),
+                   currentIndexPath == indexPath {
+                    cell.image = image
+                }
+            }
+            imageLoadTasks[indexPath] = nil
+        }
     }
 }

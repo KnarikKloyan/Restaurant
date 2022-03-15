@@ -7,15 +7,23 @@
 
 import UIKit
 
+@MainActor
 class OrderTableViewController: UITableViewController {
     var order = Order()
     var minutesToPrepareOrder = 0
+    var imageLoadTasks: [IndexPath: Task<Void, Never>] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
         
         NotificationCenter.default.addObserver(tableView!, selector: #selector(UITableView.reloadData), name: MenuController.orderUpdateNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        imageLoadTasks.forEach { key, value in value.cancel() }
     }
     
     @IBSegueAction func confirmOrder(_ coder: NSCoder) -> OrderConfirmationViewController? {
@@ -85,12 +93,27 @@ class OrderTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        imageLoadTasks[indexPath]?.cancel()
+    }
+    
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? MenuItemCell else { return }
+        
         let menuItem = MenuController.shared.order.menuItems[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
-        content.text = menuItem.name
-        content.secondaryText = menuItem.price.formatted(.currency(code: "usd"))
-        cell.contentConfiguration = content
+        cell.itemName = menuItem.name
+        cell.price = menuItem.price
+        cell.image = nil
+        
+        imageLoadTasks[indexPath] = Task {
+            if let image = try? await MenuController.shared.fetchImage(frum: menuItem.imageURL) {
+                if let currentIndexPath = self.tableView.indexPath(for: cell),
+                    currentIndexPath == indexPath {
+                    cell.image = image
+                }
+            }
+            imageLoadTasks[indexPath] = nil
+        }
     }
 }
